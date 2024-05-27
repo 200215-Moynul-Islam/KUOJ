@@ -1,0 +1,48 @@
+create database kuoj;
+use kuoj;
+
+
+create table user_info(
+	email varchar(50) primary key,
+	username varchar(50) not null,
+	user_password varchar(50) not null
+);
+
+
+create table problem(
+	problem_id int primary key,
+	problem_name varchar(50) not null,
+	time_limit int not null,
+	memory_limit int not null,
+	statement text not null,
+	intput text not null,
+	output text not null,
+	explantion text
+);
+
+
+create table sample(
+	problem_id int,
+	sample_no int,
+	sample_input text,
+	sample_output text,
+	primary key(problem_id,sample_no)
+);
+
+
+create table submission(
+	email varchar(50),
+	problem_id int,
+	shomoy datetime not null,
+	verdict varchar(50) not null,
+	primary key(email,problem_id)
+);
+
+
+create table test_case(
+	problem_id int,
+	case_no int,
+	case_input text,
+	case_output text,
+	primary key(problem_id,case_no)
+);
